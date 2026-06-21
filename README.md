@@ -166,19 +166,7 @@ commander->publish(joint_group, cmd);
 
 ---
 
-## Minimal loop
-
-```cpp
-client->wait_ready();                       // block until all topics have data
-JointSequencer seq;
-while (rclcpp::ok()) {
-    auto [imus, head, waist, arm, leg] = client->get_robot_states();   // (1) read
-    auto [joint_group, cmd] = seq.policy_joint_command(head, waist, arm, leg);
-    commander->publish(joint_group, cmd);                              // (3) publish
-}
-```
-
-| Area | enum | joints |
+| Joint group | enum | joints |
 |------|------|--------|
 | head | `JointArea::HEAD` | 2 |
 | waist | `JointArea::WAIST` | 3 |
