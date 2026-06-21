@@ -14,6 +14,18 @@
 > Keep them in separate folders, or rename (e.g. `robot_state_full_part1.csv` /
 > `robot_state_full_part2.csv`), so one run does not overwrite the other.
 
+## Results (demo video + graphs)
+
+For the result of the running, you can see the video and graph here
+(**6/20/2026 — Full Sensor and Control Function Development**):
+https://docs.google.com/presentation/d/1htcKBK6phcArd9LEKUdJSYXiPlvqzxycCNV6OPvfAMI/edit?usp=sharing
+
+It includes two runs of `robot_state_control.cpp`:
+- **Read-only** — the policy + publish lines below are commented out, so the robot
+  does not move; only state is read/logged.
+- **Full control** — run as-is; the robot moves `right_arm → left_arm → right_leg →
+  left_leg → waist` toward the target values.
+  
 # Robot State I/O — API for Collaborators
 
 Two calls are all you need to integrate a policy with the robot:
@@ -26,18 +38,6 @@ commander->publish(joint_group, cmd);                              // (3) WRITE 
 `client` is a `RobotStateClient` (reads IMU + joint-state topics) and `commander`
 is a `WholeBodyCommander` (owns one publisher per joint area). Both run on a
 background executor; your loop just calls these two functions.
-
-## Results (demo video + graphs)
-
-For the result of the running, you can see the video and graph here
-(**6/20/2026 — Full Sensor and Control Function Development**):
-https://docs.google.com/presentation/d/1htcKBK6phcArd9LEKUdJSYXiPlvqzxycCNV6OPvfAMI/edit?usp=sharing
-
-It includes two runs of `robot_state_control.cpp`:
-- **Read-only** — the policy + publish lines below are commented out, so the robot
-  does not move; only state is read/logged.
-- **Full control** — run as-is; the robot moves `right_arm → left_arm → right_leg →
-  left_leg → waist` toward the target values.
 
 ---
 
