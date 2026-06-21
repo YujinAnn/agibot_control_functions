@@ -1,3 +1,19 @@
+# Files
+
+| File | Description |
+|------|-------------|
+| `robot_states_control.cpp` | **Main file** — the C++ implementation described in this README. |
+| `robot_states_control.py` | Python version — all code works the same as `robot_states_control.cpp`. |
+| `robot_state_full.csv` | Logged state from **Part 1** (read-only run) of the 6/20/2026 slides. |
+| `robot_state_full.csv` | Logged state from **Part 2** (full control run) of the 6/20/2026 slides. |
+
+> **Recommended:** check the value ranges and scale using the two CSVs (3) and (4)
+> before wiring in your policy.
+
+> Note: files (3) and (4) share the name `robot_state_full.csv` (one per run).
+> Keep them in separate folders, or rename (e.g. `robot_state_full_part1.csv` /
+> `robot_state_full_part2.csv`), so one run does not overwrite the other.
+
 # Robot State I/O — API for Collaborators
 
 Two calls are all you need to integrate a policy with the robot:
@@ -22,22 +38,6 @@ It includes two runs of `robot_state_control.cpp`:
   does not move; only state is read/logged.
 - **Full control** — run as-is; the robot moves `right_arm → left_arm → right_leg →
   left_leg → waist` toward the target values.
-
-## Files
-
-| File | Description |
-|------|-------------|
-| `robot_states_control.cpp` | **Main file** — the C++ implementation described in this README. |
-| `robot_states_control.py` | Python version — all code works the same as `robot_states_control.cpp`. |
-| `robot_state_full.csv` | Logged state from **Part 1** (read-only run) of the 6/20/2026 slides. |
-| `robot_state_full.csv` | Logged state from **Part 2** (full control run) of the 6/20/2026 slides. |
-
-> **Recommended:** check the value ranges and scale using the two CSVs (3) and (4)
-> before wiring in your policy.
-
-> Note: files (3) and (4) share the name `robot_state_full.csv` (one per run).
-> Keep them in separate folders, or rename (e.g. `robot_state_full_part1.csv` /
-> `robot_state_full_part2.csv`), so one run does not overwrite the other.
 
 ---
 
