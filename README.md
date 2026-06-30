@@ -10,10 +10,6 @@
 > **Recommended:** check the value ranges and scale using the two CSVs (3) and (4)
 > before wiring in your policy.
 
-> Note: files (3) and (4) share the name `robot_state_full.csv` (one per run).
-> Keep them in separate folders, or rename (e.g. `robot_state_full_part1.csv` /
-> `robot_state_full_part2.csv`), so one run does not overwrite the other.
-
 ## Results (demo video + graphs)
 
 For the result of the running, you can see the video and graph here
