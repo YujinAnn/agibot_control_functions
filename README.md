@@ -5,7 +5,7 @@
 | `robot_states_control.cpp` | **Main file** — the C++ implementation described in this README. |
 | `robot_states_control.py` | Python version — all code works the same as `robot_states_control.cpp`. |
 | `robot_state_full.csv` | Logged state from **Part 1** (read-only run) of the 6/20/2026 slides. |
-| `robot_state_full.csv` | Logged state from **Part 2** (full control run) of the 6/20/2026 slides. |
+| `robot_states_control_full_cpp.csv` | Logged state from **Part 2** (full control run) of the 6/20/2026 slides. |
 
 > **Recommended:** check the value ranges and scale using the two CSVs (3) and (4)
 > before wiring in your policy.
