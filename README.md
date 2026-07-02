@@ -94,18 +94,20 @@ Robot assets and config shared by the components: `x2.yaml` (deploy config), `ac
 
 ## Running the pipeline (3 terminals)
 
+The order is (1) policy (2) bridge (3) Mujoco
+
 Once `aimdk_msgs` is built and sourced in each terminal:
 
 ```bash
-# Terminal 1 — bridge
+# Terminal 1 — policy   (see deploy_policy note above; not runnable from this folder yet)
+run_deploy_policy
+
+# Terminal 2 — bridge
 cd ros_bridge && cmake -B build -S . && cmake --build build -j4 && ./build/robot_ros_bridge
 #   (or: python3 robot_ros_bridge.py)
 
-# Terminal 2 — MuJoCo robot
-cd mujoco_x2 && cmake -B build -S . && cmake --build build -j4 && ./build/run_mujoco_x2 --no-viewer
-
-# Terminal 3 — policy   (see deploy_policy note above; not runnable from this folder yet)
-run_deploy_policy
+# Terminal 3 — MuJoCo robot
+cd mujoco_x2 && cmake -B build -S . && cmake --build build -j4 && ./build/run_mujoco_x2 
 ```
 
 The bridge and `deploy_policy` MUST use the **same** `sensor_txt` / `policy_txt` paths
