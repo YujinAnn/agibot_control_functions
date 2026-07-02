@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>mujoco_x2_cpp</name>
+  <version>0.0.1</version>
+  <description>C++ MuJoCo X2 HAL sim node (fast native viewer) for the ROS deploy pipeline.</description>
+  <maintainer email="yan2@caltech.edu">ay</maintainer>
+  <license>Proprietary</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>aimdk_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>yaml-cpp</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

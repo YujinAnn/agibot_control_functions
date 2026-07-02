@@ -1,0 +1,23 @@
+# Build / install artifacts (colcon + cmake) — rebuilt locally, not committed
+build/
+install/
+log/
+*.o
+*.a
+*.so
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Runtime IPC files + atomic-write temp files
+sensor_txt
+policy_txt
+*.tmp.*
+
+# Plots / logs
+plots/
+*.log
+
+# OS
+.DS_Store

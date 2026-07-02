@@ -1,0 +1,127 @@
+actuators:
+  # Agibot X2-Ultra motor model (AIMDK Kp/Kd). Effort limits match MJCF actuatorfrcrange.
+
+  hip_pitch_roll:
+    joint_names_expr:
+      - ".*_hip_pitch_joint"
+      - ".*_hip_roll_joint"
+    effort_limit_sim: 120.0
+    velocity_limit_sim: 32.0
+    stiffness: 40.0
+    damping: 4.0
+    armature: 0.03
+
+  hip_yaw:
+    joint_names_expr:
+      - ".*_hip_yaw_joint"
+    effort_limit_sim: 120.0
+    velocity_limit_sim: 32.0
+    stiffness: 30.0
+    damping: 3.0
+    armature: 0.03
+
+  knee:
+    joint_names_expr:
+      - ".*_knee_joint"
+    effort_limit_sim: 120.0
+    velocity_limit_sim: 20.0
+    stiffness: 80.0
+    damping: 8.0
+    armature: 0.03
+
+  ankle_pitch:
+    joint_names_expr:
+      - ".*_ankle_pitch_joint"
+    effort_limit_sim: 36.0
+    velocity_limit_sim: 37.0
+    stiffness: 40.0
+    damping: 4.0
+    armature: 0.03
+
+  ankle_roll:
+    joint_names_expr:
+      - ".*_ankle_roll_joint"
+    effort_limit_sim: 24.0
+    velocity_limit_sim: 37.0
+    stiffness: 20.0
+    damping: 2.0
+    armature: 0.03
+
+  waist_yaw:
+    joint_names_expr:
+      - "waist_yaw_joint"
+    effort_limit_sim: 120.0
+    velocity_limit_sim: 32.0
+    stiffness: 20.0
+    damping: 4.0
+    armature: 0.03
+
+  waist_pitch_roll:
+    joint_names_expr:
+      - "waist_pitch_joint"
+      - "waist_roll_joint"
+    effort_limit_sim: 48.0
+    velocity_limit_sim: 37.0
+    stiffness: 20.0
+    damping: 4.0
+    armature: 0.03
+
+  shoulder_pitch_roll:
+    joint_names_expr:
+      - ".*_shoulder_pitch_joint"
+      - ".*_shoulder_roll_joint"
+    effort_limit_sim: 36.0
+    velocity_limit_sim: 37.0
+    stiffness: 20.0
+    damping: 2.0
+    armature: 0.03
+
+  arm_small:
+    joint_names_expr:
+      - ".*_shoulder_yaw_joint"
+      - ".*_elbow_joint"
+      - ".*_wrist_yaw_joint"
+    effort_limit_sim: 24.0
+    velocity_limit_sim: 37.0
+    stiffness: 20.0
+    damping: 2.0
+    armature: 0.03
+
+  wrist_pitch_roll:
+    joint_names_expr:
+      - ".*_wrist_pitch_joint"
+      - ".*_wrist_roll_joint"
+    effort_limit_sim: 4.8
+    velocity_limit_sim: 22.0
+    stiffness: 20.0
+    damping: 2.0
+    armature: 0.03
+
+  head_yaw:
+    joint_names_expr:
+      - "head_yaw_joint"
+    effort_limit_sim: 2.6
+    velocity_limit_sim: 22.0
+    stiffness: 20.0
+    damping: 2.0
+    armature: 0.03
+
+  head_pitch:
+    joint_names_expr:
+      - "head_pitch_joint"
+    effort_limit_sim: 0.6
+    velocity_limit_sim: 22.0
+    stiffness: 20.0
+    damping: 2.0
+    armature: 0.03
+
+default_initial_joint_pos:
+  ".*_hip_pitch_joint": -0.1
+  ".*_knee_joint": 0.2
+  ".*_ankle_pitch_joint": -0.1
+  ".*_shoulder_pitch_joint": 0.2
+  left_shoulder_roll_joint: 0.2
+  right_shoulder_roll_joint: -0.2
+  ".*_elbow_joint": -0.6
+  head_yaw_joint: 0.0
+  head_pitch_joint: 0.0

@@ -1,0 +1,207 @@
+robot: x2
+
+task_id: Mjlab-Tracking-Flat-Agibot-X2-ROM-Online-No-State-Estimation
+
+# Whole-body tracking checkpoint (edit to your run).
+checkpoint_path: robots/x2/default_policy/fom/model.pt
+
+rom_reference:
+  config_path: thirdparty/mjlab/src/mjlab/tasks/tracking/config/x2/rom_online_reference.yaml
+
+joystick:
+  ranges:
+    lin_vel_x: [-2.0, 3.5]
+    lin_vel_y: [-1.0, 1.0]
+    ang_vel_z: [-3.14, 3.14]
+  foot_air_ranges:
+    lin_vel_x: [-0.75, 0.75]
+    lin_vel_y: [-0.5, 0.5]
+    ang_vel_z: [-1.0, 1.0]
+
+# Joints removed from X2 mimic deploy MJCF (not in 20-D policy). Values used for
+# FK/reference only; no actuators in sim (see rom_deploy/sim/assets/x2/robot.xml).
+soft_locked:
+  waist_yaw_joint: 0.0
+  waist_pitch_joint: 0.0
+  waist_roll_joint: 0.0
+  head_yaw_joint: 0.0
+  head_pitch_joint: 0.0
+  left_wrist_yaw_joint: 0.0
+  left_wrist_pitch_joint: 0.0
+  left_wrist_roll_joint: 0.0
+  right_wrist_yaw_joint: 0.0
+  right_wrist_pitch_joint: 0.0
+  right_wrist_roll_joint: 0.0
+
+# X2_WHOLE_BODY_TRACKING_JOINT_ORDER (31). Empty default_q → filled at export from mjlab.
+# kp/kd: policy command gains; stand_kp/stand_kd: STAND_HOLD + arm gain-blend reference.
+joint_command:
+  joint_names:
+    - left_hip_pitch_joint
+    - left_hip_roll_joint
+    - left_hip_yaw_joint
+    - left_knee_joint
+    - left_ankle_pitch_joint
+    - left_ankle_roll_joint
+    - right_hip_pitch_joint
+    - right_hip_roll_joint
+    - right_hip_yaw_joint
+    - right_knee_joint
+    - right_ankle_pitch_joint
+    - right_ankle_roll_joint
+    - waist_yaw_joint
+    - waist_pitch_joint
+    - waist_roll_joint
+    - head_yaw_joint
+    - head_pitch_joint
+    - left_shoulder_pitch_joint
+    - left_shoulder_roll_joint
+    - left_shoulder_yaw_joint
+    - left_elbow_joint
+    - left_wrist_yaw_joint
+    - left_wrist_pitch_joint
+    - left_wrist_roll_joint
+    - right_shoulder_pitch_joint
+    - right_shoulder_roll_joint
+    - right_shoulder_yaw_joint
+    - right_elbow_joint
+    - right_wrist_yaw_joint
+    - right_wrist_pitch_joint
+    - right_wrist_roll_joint
+  default_q: []
+  kp:
+    - 40.0 # left_hip_pitch_joint (policy)
+    - 40.0 # left_hip_roll_joint
+    - 30.0 # left_hip_yaw_joint
+    - 80.0 # left_knee_joint
+    - 40.0 # left_ankle_pitch_joint
+    - 20.0 # left_ankle_roll_joint
+    - 40.0 # right_hip_pitch_joint
+    - 40.0 # right_hip_roll_joint
+    - 30.0 # right_hip_yaw_joint
+    - 80.0 # right_knee_joint
+    - 40.0 # right_ankle_pitch_joint
+    - 20.0 # right_ankle_roll_joint
+    - 400.0 # waist_yaw_joint (soft-locked)
+    - 400.0 # waist_pitch_joint
+    - 400.0 # waist_roll_joint
+    - 100.0 # head_yaw_joint (soft-locked)
+    - 100.0 # head_pitch_joint
+    - 20.0 # left_shoulder_pitch_joint (policy)
+    - 20.0 # left_shoulder_roll_joint
+    - 20.0 # left_shoulder_yaw_joint
+    - 20.0 # left_elbow_joint
+    - 100.0 # left_wrist_yaw_joint (soft-locked)
+    - 100.0 # left_wrist_pitch_joint
+    - 100.0 # left_wrist_roll_joint
+    - 20.0 # right_shoulder_pitch_joint
+    - 20.0 # right_shoulder_roll_joint
+    - 20.0 # right_shoulder_yaw_joint
+    - 20.0 # right_elbow_joint
+    - 100.0 # right_wrist_yaw_joint (soft-locked)
+    - 100.0 # right_wrist_pitch_joint
+    - 100.0 # right_wrist_roll_joint
+  kd:
+    - 4.0
+    - 4.0
+    - 3.0
+    - 8.0
+    - 4.0
+    - 2.0
+    - 4.0
+    - 4.0
+    - 3.0
+    - 8.0
+    - 4.0
+    - 2.0
+    - 20.0
+    - 20.0
+    - 20.0
+    - 5.0
+    - 5.0
+    - 2.0
+    - 2.0
+    - 2.0
+    - 2.0
+    - 5.0
+    - 5.0
+    - 5.0
+    - 2.0
+    - 2.0
+    - 2.0
+    - 2.0
+    - 5.0
+    - 5.0
+    - 5.0
+  stand_kp:
+    - 250.0 # left_hip_pitch_joint
+    - 250.0 # left_hip_roll_joint
+    - 250.0 # left_hip_yaw_joint
+    - 250.0 # left_knee_joint
+    - 400.0 # left_ankle_pitch_joint
+    - 100.0 # left_ankle_roll_joint
+    - 250.0 # right_hip_pitch_joint
+    - 250.0 # right_hip_roll_joint
+    - 250.0 # right_hip_yaw_joint
+    - 250.0 # right_knee_joint
+    - 400.0 # right_ankle_pitch_joint
+    - 100.0 # right_ankle_roll_joint
+    - 400.0 # waist_yaw_joint
+    - 400.0 # waist_pitch_joint
+    - 400.0 # waist_roll_joint
+    - 100.0 # head_yaw_joint
+    - 100.0 # head_pitch_joint
+    - 40.0 # left_shoulder_pitch_joint
+    - 40.0 # left_shoulder_roll_joint
+    - 40.0 # left_shoulder_yaw_joint
+    - 40.0 # left_elbow_joint
+    - 100.0 # left_wrist_yaw_joint
+    - 100.0 # left_wrist_pitch_joint
+    - 100.0 # left_wrist_roll_joint
+    - 40.0 # right_shoulder_pitch_joint
+    - 40.0 # right_shoulder_roll_joint
+    - 40.0 # right_shoulder_yaw_joint
+    - 40.0 # right_elbow_joint
+    - 100.0 # right_wrist_yaw_joint
+    - 100.0 # right_wrist_pitch_joint
+    - 100.0 # right_wrist_roll_joint
+  stand_kd:
+    - 9.0 # left_hip_pitch_joint
+    - 9.0 # left_hip_roll_joint
+    - 9.0 # left_hip_yaw_joint
+    - 9.0 # left_knee_joint
+    - 20.0 # left_ankle_pitch_joint
+    - 5.0 # left_ankle_roll_joint
+    - 9.0 # right_hip_pitch_joint
+    - 9.0 # right_hip_roll_joint
+    - 9.0 # right_hip_yaw_joint
+    - 9.0 # right_knee_joint
+    - 20.0 # right_ankle_pitch_joint
+    - 5.0 # right_ankle_roll_joint
+    - 20.0 # waist_yaw_joint
+    - 20.0 # waist_pitch_joint
+    - 20.0 # waist_roll_joint
+    - 5.0 # head_yaw_joint
+    - 5.0 # head_pitch_joint
+    - 2.0 # left_shoulder_pitch_joint
+    - 2.0 # left_shoulder_roll_joint
+    - 2.0 # left_shoulder_yaw_joint
+    - 2.0 # left_elbow_joint
+    - 5.0 # left_wrist_yaw_joint
+    - 5.0 # left_wrist_pitch_joint
+    - 5.0 # left_wrist_roll_joint
+    - 2.0 # right_shoulder_pitch_joint
+    - 2.0 # right_shoulder_roll_joint
+    - 2.0 # right_shoulder_yaw_joint
+    - 2.0 # right_elbow_joint
+    - 5.0 # right_wrist_yaw_joint
+    - 5.0 # right_wrist_pitch_joint
+    - 5.0 # right_wrist_roll_joint
+
+sim:
+  base_pos_z: 0.68
+  timestep_s: 0.002
+  ankle_ctrl_decimation: 1
+  apply_actuator_physics: true
+
+device: cpu
