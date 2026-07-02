@@ -5,7 +5,7 @@ communicating over the Agibot HAL topics (the same interface as the real robot).
 
 ```
  deploy_policy  <--(policy_txt, 50 Hz)-->  ros_bridge  <--(ROS command)-->  Physics
- (the policy)   <--(sensor_txt, 500Hz)-->  (bridge)    <-->(ROS state)---->  (robot or MuJoCo sim)
+ (the policy)   <--(sensor_txt, 500Hz)-->  (bridge)    <--(ROS state)---->  (robot or MuJoCo sim)
 ```
 
 Three processes talk over **ROS 2 topics** (state / command) and two **text files**
