@@ -87,11 +87,7 @@ runs the ROM + tracking policy, writes `policy_txt`).
 (ROM runtime + tracking controller + kinematics) and depends on **libtorch, casadi/cusadi,
 the ROM/tracking policy weights, and the robot kinematics/config data** — these are **not yet
 included in this folder**, so `deploy_policy` **cannot be built or run standalone here yet**
-(work in progress). For now, run the prebuilt `run_deploy_policy` binary from the full source
-tree, pointing it at the same `sensor_txt` / `policy_txt` as the bridge:
-```bash
-run_deploy_policy --sensor <shared>/sensor_txt --policy <shared>/policy_txt
-```
+(work in progress). For now, run your policy code.
 
 ### (4) `robots/x2/`
 Robot assets and config shared by the components: `x2.yaml` (deploy config), `actuator.yaml`
