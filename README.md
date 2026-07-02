@@ -21,7 +21,13 @@ Three processes talk over **ROS 2 topics** (state / command) and two **text file
 | `deploy_policy/`| The **tracking policy** runner (C++). ⚠️ source only — see note below. |
 | `robots/x2/`    | X2 robot **assets/config** (`x2.yaml`, `actuator.yaml`, MuJoCo XML, meshes). |
 
+## Prerequisites summary
 
+- ROS 2 **Humble** + `colcon` (Ubuntu 22.04).
+- Build `aimdk_msgs` (above) and source it in every terminal.
+- MuJoCo (for `mujoco_x2`) — see its README.
+- `deploy_policy`: additional heavy deps (libtorch / casadi / policy data) — not yet packaged here.
+  
 ## What is `aimdk`?
 
 `aimdk` is the Agibot robot's ROS 2 middleware. For this project we only need **`aimdk_msgs`**,
@@ -112,11 +118,3 @@ cd mujoco_x2 && cmake -B build -S . && cmake --build build -j4 && ./build/run_mu
 
 The bridge and `deploy_policy` MUST use the **same** `sensor_txt` / `policy_txt` paths
 (default `~/ROM-RL/Yujin/agibot_control_functions/{sensor_txt,policy_txt}`; configurable).
-
-
-## Prerequisites summary
-
-- ROS 2 **Humble** + `colcon` (Ubuntu 22.04).
-- Build `aimdk_msgs` (above) and source it in every terminal.
-- MuJoCo (for `mujoco_x2`) — see its README.
-- `deploy_policy`: additional heavy deps (libtorch / casadi / policy data) — not yet packaged here.
