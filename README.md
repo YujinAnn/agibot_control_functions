@@ -4,8 +4,8 @@ A ROS 2 test setup for deploying an Agibot X2 tracking policy against a MuJoCo s
 communicating over the Agibot HAL topics (the same interface as the real robot).
 
 ```
- deploy_policy  <--(policy_txt, 50 Hz)-->  ros_bridge  <--(ROS command)-->  Physics
- (the policy)   <--(sensor_txt, 500Hz)-->  (bridge)    <--(ROS state)---->  (robot or MuJoCo sim)
+ deploy_policy    -->(policy_txt)-->  ros_bridge       -->(ROS command)-->  Physics
+ (the policy, 50Hz) <--(sensor_txt)<--  (bridge, 500Hz) <--(ROS state)<---  (robot or MuJoCo sim)
 ```
 
 Three processes talk over **ROS 2 topics** (state / command) and two **text files**
