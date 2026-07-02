@@ -5,8 +5,8 @@ the robot / simulator. It reads the robot state over ROS and writes it to `senso
 reads the policy's joint commands from `policy_txt` and publishes them over ROS.
 
 ```
-run_deploy_policy --(policy_txt, 50 Hz)--> [robot_ros_bridge] --(ROS cmd)--> mujoco_x2 (robot)
-mujoco_x2 (robot)  --(ROS state)--> [robot_ros_bridge] --(sensor_txt, 500 Hz)--> run_deploy_policy
+ deploy_policy    -->(policy_txt)-->  ros_bridge       -->(ROS command)-->  Physics
+ (the policy, 50Hz) <--(sensor_txt)<--  (bridge, 500Hz) <--(ROS state)<---  (robot or MuJoCo sim)
 ```
 
 There are **two implementations with the same structure and behavior** — pick either:
